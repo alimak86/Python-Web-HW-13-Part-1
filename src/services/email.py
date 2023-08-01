@@ -7,12 +7,12 @@ from pydantic import EmailStr
 from src.services.auth import auth_service
 
 CONFIGURATION = ConnectionConfig(
-    MAIL_USERNAME="example@meta.ua",
-    MAIL_PASSWORD="secretPassword",
-    MAIL_FROM=EmailStr("example@meta.ua"),
+    MAIL_USERNAME="put_nik4@mail.ru",
+    MAIL_PASSWORD="uHJNrYCdcLHHshn5zs6G",
+    MAIL_FROM=EmailStr("put_nik4@mail.ru"),
     MAIL_PORT=465,
-    MAIL_SERVER="smtp.meta.ua",
-    MAIL_FROM_NAME="Desired Name",
+    MAIL_SERVER="mail.ru",
+    MAIL_FROM_NAME="AlisaNikita",
     MAIL_STARTTLS=False,
     MAIL_SSL_TLS=True,
     USE_CREDENTIALS=True,

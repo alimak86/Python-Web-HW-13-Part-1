@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 fastapi-utils = "*"
 fastapi-mail = "*"
+fastapi-limiter = "*"
 
 [dev-packages]
 

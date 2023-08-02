@@ -92,7 +92,7 @@ class Login:
                       token_type="bearer")
     ###return {"access_token": access_token, "refresh_token": refresh_token, "token_type": "bearer"}
 
-  @authentification_router.get('/confirmed_email/{token}')
+  @authentification_router.get('/auth/confirmed_email/{token}')
   async def confirmed_email(self,token: str):
     email = await auth_service.get_email_from_token(token)
     execute = repository_users.Get_User_by_Email(email,self.db)
@@ -105,7 +105,7 @@ class Login:
     await execute()
     return {"message": "Email confirmed"}
 
-  @authentification_router.post('/request_email')
+  @authentification_router.post('/auth/request_email')
   async def request_email(self,body: RequestEmail, background_tasks: BackgroundTasks, request: Request):
     user = await repository_users.get_user_by_email(body.email, self.db)
     if user.confirmed:

@@ -1,9 +1,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from src.conf.config import settings
+# SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://postgres:567234@195.201.150.230:5433/a_makusheva_fa"
+# SQLALCHEMY_DATABASE_URL_FOR_WORK = "sqlite:///contacts.db"
 
-SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://postgres:567234@195.201.150.230:5433/a_makusheva_fa"
-SQLALCHEMY_DATABASE_URL_FOR_WORK = "sqlite:///contacts.db"
-
+SQLALCHEMY_DATABASE_URL_FOR_WORK = settings.sqlalchemy_database_url
 
 class Connect_db:
 

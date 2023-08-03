@@ -10,7 +10,9 @@ class Connect_db:
 
   def __init__(self, url: str):
     self.url = url
-    self.engine = create_engine(url,connect_args={"check_same_thread": False})
+    #############self.engine = create_engine(url,connect_args={"check_same_thread": False})
+    self.engine = create_engine(url)
+
     self.session = sessionmaker(autocommit=False,
                                 autoflush=False,
                                 bind=self.engine)

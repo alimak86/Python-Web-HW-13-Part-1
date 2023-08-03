@@ -8,6 +8,7 @@ from src.schemas import ContactModel, ResponseContactModel, ContactModelFullName
 from src.repository import contacts as repository_contacts
 from src.database.models import User
 from src.services.auth import auth_service
+from fastapi_limiter.depends import RateLimiter
 
 router = APIRouter(prefix='/contacts', tags=["contacts"])
 """
@@ -15,7 +16,8 @@ extract all contacts
 """
 
 
-@router.get("/", response_model=List[ResponseContactModel])
+@router.get("/", response_model=List[ResponseContactModel], description='No more than 10 requests per 5 seconds',
+            dependencies=[Depends(RateLimiter(times=10, seconds=5))])
 async def read_contacts(
   skip: int = 0,
   limit: int = 100,

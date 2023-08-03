@@ -69,3 +69,16 @@ class Update_Token(BaseUser):
   async def __call__(self) -> None:
     self.user.refresh_token = self.token
     self.db.commit()
+
+class Update_Avatar(BaseUser):
+  def __init__(self, email:str, src_url:str, db:Session):
+    super().__init__(db)
+    self.email = email
+    self.url = src_url
+
+  async def __call__(self) -> User:
+      execute = Get_User_by_Email(self.email,self.db)
+      user = await execute()
+      user.avatar = self.url
+      self.db.commit()
+      return user  

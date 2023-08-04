@@ -2,10 +2,6 @@
 
 Email Fast API
 
-# Python-Web-HW-12
-
-authentification
-
 FastAPI
 В данном проекте создан REST FastAPI, который реализует следующее:
 Контакты хранятся в базе данных и включают следующую информацию:
